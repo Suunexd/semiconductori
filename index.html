@@ -26,6 +26,11 @@
         display: block;
         margin: auto;
     }
+    #resultbox {
+            font-size: 40px; 
+            width: 500px; 
+            height: 40px; 
+        }
 </style>
 </head>
 <body>
@@ -125,12 +130,65 @@
         medii apoase.</p>
 </div>
 <br><br><br><br><br><br><br><br>
+<div class="box">
+    <p>Disclaimer:</p>
+    <p>Circuitul este ideal</p>
+    <p>Pentru toate materialele: S=1 cm^2 și l=2 cm</p>
+    <p>Toate valorile sunt comparate cu cuprul</p>
+    <table align="center">
+        <thead>
+            <tr>
+                <th>Nume</th>
+                <th>Rezistivitate (Ω·m)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cupru</td>
+                <td>1.68 × 10^-8</td>
+            </tr>
+            <tr>
+                <td>Aluminiu</td>
+                <td>2.82 × 10^-8</td>
+            </tr>
+            <tr>
+                <td>Aur</td>
+                <td>2.44 × 10^-8</td>
+            </tr>
+            <tr>
+                <td>Argint</td>
+                <td>1.59 × 10^-8</td>
+            </tr>
+            <tr>
+                <td>Inox</td>
+                <td>6.90 × 10^−7</td>
+            </tr>
+            <tr>
+                <td>Lemn</td>
+                <td>&infin;</td>
+            </tr>
+            <tr>
+                <td>Sticla</td>
+                <td>&infin;</td>
+            </tr>
+            <tr>
+                <td>Plastic</td>
+                <td>&infin;</td>
+            </tr>
+            <tr>
+                <td>Hartie</td>
+                <td>&infin;</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br><br><br><br><br><br><br><br>
   <canvas id="patrat" width="1500" height="800"></canvas>
-
+ 
   <script>
  
       var canvas = document.getElementById("patrat");
-
+      var randamm=0;
       var circuit = new Image;
       circuit.src='circuit.png';
       var switcho = new Image;
@@ -203,12 +261,14 @@
 
       var canvasOffsetX, canvasOffsetY;
 
-     
 
+      
+      const resultbox = document.getElementById('resultbox');
 function desen() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(circuit, 450, 100, circuit.width * 1.5, circuit.height * 1.5);
     ctx.drawImage(switchf, 835, 175, switchf.width * 0.2, switchf.height * 0.2);
+    
     if (working == 1)
         ctx.drawImage(switcho, 838, 170, switcho.width * 0.2, switcho.height * 0.2);
     ctx.drawImage(becs, 900, 555, becs.width * 1.5, becs.height * 1.5);
@@ -225,6 +285,8 @@ function desen() {
         var draggedImage = imagini[draggedImageIndex];
         ctx.drawImage(draggedImage.img, draggedImage.x, draggedImage.y, draggedImage.width, draggedImage.height);
     }
+    ctx.font = 'bold 24px Arial';
+    ctx.fillText(`Raport: ${randamm}%`, 880,700);
 }
 
             canvas.addEventListener("click",function(event){
@@ -281,6 +343,22 @@ canvas.addEventListener("mousemove", function(event) {
     }
 });
 
+    function randament(Rezistivitate,putere)
+    {   var I=250/1000;
+        var cuprurez=1.68/100000000;
+        var S=1;
+        var l=2;
+        var rezistentacomparativa=cuprurez*l/S;
+        var UCu=I*rezistentacomparativa;
+        var zecear=Math.pow(10,putere);
+        var rezistenta=(Rezistivitate*zecear*l)/S;
+        var U=I*rezistenta;
+        var rand=U/UCu;
+        rand=rand*100;
+        rand = rand.toFixed(2);
+        return rand;
+    }
+    
 canvas.addEventListener("mouseup", function(event) {
     var clickX = event.clientX - canvas.getBoundingClientRect().left;
                 var clickY = event.clientY - canvas.getBoundingClientRect().top;
@@ -292,15 +370,41 @@ canvas.addEventListener("mouseup", function(event) {
                 clickY <= 800 
                 
             ) {
-                if(draggedImageIndex == 1
-                    || draggedImageIndex == 3
-                    || draggedImageIndex == 5
-                    || draggedImageIndex == 7
-                )
+                if(draggedImageIndex == 0)
+                {   console.log("aaaa");
+                    randamm=randament(2.82,-8);
+                    on = 1;
+                    
+                    console.log(randamm);
+                    
+                    
+                }
+                if(draggedImageIndex == 2)
+                {   randamm=randament(1.68,-8);
+                    on = 1;
+                    console.log(randamm);
+                }
+                if( draggedImageIndex == 4)
+                {  randamm=randament(6.90,-7);
+                    on = 1;
+                    console.log(randamm);
+                }
+                if(draggedImageIndex == 6)
+                {   randamm=randament(2.44,-8);
+                    on = 1;
+                    console.log(randamm);
+                }
+                
+               if(draggedImageIndex !=0 &&
+               draggedImageIndex !=2    &&
+               draggedImageIndex !=4    &&
+               draggedImageIndex !=6 
+               )    
                 on = 0;
-                else on = 1;
+                
                 
             }
+            else randamm=0;
         isDragging = false;
         draggedImageIndex = -1; 
     }
@@ -321,7 +425,7 @@ function resetCanvas() {
     
 
   </script>
-  <p style="text-align: end;"><hyperref>Lucrare pdf</p>
+  <p style="text-align: end; font-size: medium;"><hyperref>Lucrare pdf</p>
   <p style="text-align: end;"><a href="https://einsteinworld.com/ew/wp-content/uploads/experiments/Experiments%20for%20Elementary%20Schools%20-%20Metals%20as%20Conductors%20of%20Electricity.pdf">einsteinworld.com</a></p>
 </body>
 </html>
