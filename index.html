@@ -31,6 +31,11 @@
             width: 500px; 
             height: 40px; 
         }
+        canvas {
+        border: 2px solid black;
+        border-radius: 30px;
+       
+    }
 </style>
 </head>
 <body>
@@ -211,7 +216,7 @@
     </table>
 </div>
 <br><br><br><br><br><br><br><br>
-  <canvas id="patrat" width="1500" height="800"></canvas>
+  <canvas id="patrat" width="1462" height="820"></canvas>
  
   <script>
  
@@ -263,7 +268,7 @@
     var rand = Math.floor(index / coloane);
 
     var x = 50 + coloana * (width + 10);
-    var y = 50 + rand * (height + 10);
+    var y = 110 + rand * (height + 10);
     
     imagini.push({
         img: imag,
