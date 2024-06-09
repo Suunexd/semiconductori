@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE shop SYSTEM "macoveieduard.dtd" >
+<gameshop>
+    <product>
+    <name>Amplifying Tome</name>
+    <price>400 gold</price>
+    <bonus>20 ap</bonus>
+    </product>
+    <product>
+        <name>B. F. Sword</name>
+        <price>1300 gold</price>
+        <bonus>40 ad</bonus>
+    </product>
+     <product>
+        <name>Blasting Wand</name>
+        <price>850 gold</price>
+        <bonus>45 ap</bonus>
+    </product>
+     <product>
+        <name>Cloak of Agility</name>
+        <price>600 gold</price>
+        <bonus>15% crit chance</bonus>
+    </product>
+     <product>
+        <name>Cloth Armor</name>
+        <price>300 gold</price>
+        <bonus>15 armor</bonus>
+    </product>
+     <product>
+        <name>Dagger</name>
+        <price>300 gold</price>
+        <bonus>15 as</bonus>
+    </product>
+     <product>
+        <name> Faerie Charm</name>
+        <price>250 gold</price>
+        <bonus>50% mana reg</bonus>
+    </product>
+     <product>
+        <name> Glowing Mote</name>
+        <price>250 gold</price>
+        <bonus>5 ability haste</bonus>
+    </product>
+     <product>
+        <name>Long Sword</name>
+        <price>350 gold</price>
+        <bonus>10 ad</bonus>
+    </product>
+     <product>
+        <name>Needlessly Large Rod</name>
+        <price>1250 gold</price>
+        <bonus>70 ap</bonus>
+    </product>
+     <product>
+        <name>Null-Magic Mantle</name>
+        <price>450 gold</price>
+        <bonus>25 magic res</bonus>
+    </product>
+    <product>
+        <name>Pickaxe</name>
+        <price>875 gold</price>
+        <bonus>25 ad</bonus>
+    </product>
+    <product>
+        <name>Rejuvenation Bead</name>
+        <price>300 gold</price>
+        <bonus>100% health reg</bonus>
+    </product>
+    <product>
+        <name>Ruby Crystal</name>
+        <price>400 gold</price>
+        <bonus>150 hp</bonus>
+    </product>
+    <product>
+        <name>Sapphire Crystal</name>
+        <price>350 gold</price>
+        <bonus>250 mana</bonus>
+    </product>
+</gameshop>
