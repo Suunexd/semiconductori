@@ -312,7 +312,7 @@ function desen() {
 
 
             canvas.addEventListener("mousedown", function(event) {
-    canvasOffsetX = canvas.getBoundingClientRect().left;
+    if(on==0){canvasOffsetX = canvas.getBoundingClientRect().left;
     canvasOffsetY = canvas.getBoundingClientRect().top;
 
     imagini.forEach(function(imagine, index) {
@@ -332,6 +332,7 @@ function desen() {
             draggedImageIndex = index; 
         }
     });
+}
 });
 
 canvas.addEventListener("mousemove", function(event) {
@@ -364,7 +365,7 @@ canvas.addEventListener("mouseup", function(event) {
                 var clickY = event.clientY - canvas.getBoundingClientRect().top;
     if (isDragging) {
         if (
-                clickX >= 1200 &&
+                clickX >= 1000 &&
                 clickX <= 1300 && 
                 clickY >= 500 &&
                 clickY <= 800 
@@ -400,7 +401,7 @@ canvas.addEventListener("mouseup", function(event) {
                draggedImageIndex !=4    &&
                draggedImageIndex !=6 
                )    
-                on = 0;
+                on = -1;
                 
                 
             }
